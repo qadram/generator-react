@@ -10,6 +10,7 @@ const path = require('path');
 const env = require('./env');
 
 const reactts = require('./generate-react-ts');
+const reactjs = require('./generate-react-js');
 
 module.exports = class extends Generator {
 
@@ -35,7 +36,7 @@ module.exports = class extends Generator {
 
     async prompting() {
         const extensionGenerators = [
-            reactts
+            reactts, reactjs
         ]
 
         // Ask for extension type
