@@ -9,23 +9,6 @@ let validator = require('./validator');
 * @param {import('yeoman-generator')} generator
 * @param {Object} extensionConfig
 */
-exports.askForExtensionDisplayName = (generator, extensionConfig) => {
-    let extensionDisplayName = generator.options['extensionDisplayName'];
-    if (extensionDisplayName) {
-        extensionConfig.displayName = extensionDisplayName;
-        return Promise.resolve();
-    }
-
-    return generator.prompt({
-        type: 'input',
-        name: 'displayName',
-        message: 'What\'s the name of your extension?',
-        default: extensionConfig.displayName
-    }).then(displayNameAnswer => {
-        extensionConfig.displayName = displayNameAnswer.displayName;
-    });
-}
-
 /**
  * Ask for extension id ("name" in package.json)
 * @param {import('yeoman-generator')} generator
@@ -53,27 +36,6 @@ exports.askForExtensionId = (generator, extensionConfig) => {
         validate: validator.validateExtensionId
     }).then(nameAnswer => {
         extensionConfig.name = nameAnswer.name;
-    });
-}
-
-/**
- * Ask for extension description
-* @param {import('yeoman-generator')} generator
-* @param {Object} extensionConfig
-*/
-exports.askForExtensionDescription = (generator, extensionConfig) => {
-    let extensionDescription = generator.options['extensionDescription'];
-    if (extensionDescription) {
-        extensionConfig.description = extensionDescription;
-        return Promise.resolve();
-    }
-
-    return generator.prompt({
-        type: 'input',
-        name: 'description',
-        message: 'What\'s the description of your extension?'
-    }).then(descriptionAnswer => {
-        extensionConfig.description = descriptionAnswer.description;
     });
 }
 

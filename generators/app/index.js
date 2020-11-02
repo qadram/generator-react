@@ -7,7 +7,6 @@ const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 
 const path = require('path');
-const env = require('./env');
 
 const reactts = require('./generate-react-ts');
 const reactjs = require('./generate-react-js');
@@ -113,15 +112,8 @@ module.exports = class extends Generator {
         this.log('');
 
         //TODO: Dump the README.md to show the commands
-        this.log('Your extension ' + this.extensionConfig.name + ' has been created!');
+        this.log('Your project ' + this.extensionConfig.name + ' has been created!');
         this.log('');
-        this.log('To start editing with Visual Studio Code, use the following commands:');
-        this.log('');
-        this.log('     cd ' + this.extensionConfig.name);
-        this.log('     code .');
-        this.log('');
-        this.log('Open vsc-extension-quickstart.md inside the new extension for further instructions');
-        this.log('on how to modify, test and publish your extension.');
 
         this.log('');
 
